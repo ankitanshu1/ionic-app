@@ -5,6 +5,7 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { SignupPage } from '../signup/signup';
 import { ConfirmPage } from '../confirm/confirm';
+import { ProductApi } from '../../providers/aws.product.api';
 
 import { User } from '../../providers/providers';
 
@@ -23,11 +24,17 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController,
               public user: User,
+              public product : ProductApi,
               public loadingCtrl: LoadingController) {
     this.loginDetails = new LoginDetails(); 
   }
 
   login() {
+
+    this.product.searchById().then((result)=>{
+      result      
+    })
+
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
